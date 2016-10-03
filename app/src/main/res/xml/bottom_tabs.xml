@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/tab_calender"
+        icon="@mipmap/ic_cal"
+        title="calender" />
+    <tab
+        id="@+id/tab_document"
+        icon="@mipmap/ic_doc"
+        title="document" />
+    <tab
+        id="@+id/tab_tweets_one"
+        icon="@mipmap/ic_twitter"
+        title="tweets" />
+
+    <tab
+        id="@+id/tab_document_two"
+        icon="@mipmap/ic_doc"
+        title="document" />
+    <tab
+        id="@+id/tab_tweets_two"
+        icon="@mipmap/ic_twitter"
+        title="tweets" />
+</tabs>
