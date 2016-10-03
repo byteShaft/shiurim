@@ -1,10 +1,17 @@
 package com.byteshaft.shiurim;
 
 import android.support.annotation.IdRes;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.byteshaft.shiurim.fragments.CalendarFragment;
+import com.byteshaft.shiurim.fragments.DocumentOneFragment;
+import com.byteshaft.shiurim.fragments.DocumentTwoFragment;
+import com.byteshaft.shiurim.fragments.TweetOneFragment;
+import com.byteshaft.shiurim.fragments.TweetTwoFragment;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
@@ -22,20 +29,27 @@ public class MainActivity extends AppCompatActivity {
             public void onTabSelected(@IdRes int tabId) {
 
                 if (tabId == R.id.tab_calender) {
-                    Toast.makeText(getApplicationContext(), "cal", Toast.LENGTH_SHORT).show();
-                    // The tab with id R.id.tab_calender was reselected,
-                    // change your content accordingly.
+                    loadFragment(new CalendarFragment());
+
                 } else if (tabId == R.id.tab_document) {
-                    Toast.makeText(getApplicationContext(), "doc one", Toast.LENGTH_SHORT).show();
+                    loadFragment(new DocumentOneFragment());
+
                 } else if (tabId == R.id.tab_tweets_one) {
-                    Toast.makeText(getApplicationContext(), "tweet one", Toast.LENGTH_SHORT).show();
+                    loadFragment(new TweetOneFragment());
 
                 } else if (tabId == R.id.tab_document_two) {
-                    Toast.makeText(getApplicationContext(), "doc two", Toast.LENGTH_SHORT).show();
+                    loadFragment(new DocumentTwoFragment());
+
                 } else if (tabId == R.id.tab_tweets_two) {
-                    Toast.makeText(getApplicationContext(), "tweet two", Toast.LENGTH_SHORT).show();
+                    loadFragment(new TweetTwoFragment());
                 }
             }
         });
+    }
+
+    public void loadFragment(Fragment fragment) {
+        FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
+        tx.replace(R.id.container, fragment);
+        tx.commit();
     }
 }
