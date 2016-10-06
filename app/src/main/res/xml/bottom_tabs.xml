@@ -3,22 +3,32 @@
     <tab
         id="@+id/tab_calender"
         icon="@mipmap/ic_cal"
-        title="calender" />
+        inActiveColor="#ffffff"
+        activeColor="#ebd093"
+        title="Minyanim" />
     <tab
         id="@+id/tab_document"
         icon="@mipmap/ic_doc"
-        title="shiurim" />
+        inActiveColor="#ffffff"
+        activeColor="#ebd093"
+        title="Shiurim" />
     <tab
         id="@+id/tab_tweets_one"
         icon="@mipmap/ic_twitter"
-        title="updates" />
+        inActiveColor="#ffffff"
+        activeColor="#ebd093"
+        title="Updates" />
 
     <tab
         id="@+id/tab_document_two"
         icon="@mipmap/ic_contact"
-        title="contact Us" />
+        inActiveColor="#ffffff"
+        activeColor="#ebd093"
+        title="Contact Us" />
     <tab
         id="@+id/tab_tweets_two"
         icon="@mipmap/ic_twitter"
-        title="ads" />
+        inActiveColor="#ffffff"
+        activeColor="#ebd093"
+        title="Ads" />
 </tabs>
