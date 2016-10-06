@@ -1,32 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <im.delight.android.webview.AdvancedWebView
+        android:id="@+id/t_one_webview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp">
-        <ImageView
-            android:id="@+id/iv_tweets_icon"
-            android:layout_width="60dp"
-            android:layout_height="60dp"/>
-        <TextView
-            android:id="@+id/tv_twitter_account_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="30dp"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            android:typeface="serif"/>
-    </LinearLayout>
+        android:layout_height="match_parent"/>
 
-    <ListView android:id="@+id/lv_tweets"
+    <TextView
+        android:id="@+id/tv_t_one"
+        android:text="No Network Connection"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clickable="false"
-        android:divider="@null"/>
-</LinearLayout>
+        android:layout_height="match_parent" />
+
+</RelativeLayout>

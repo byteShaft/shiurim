@@ -4,14 +4,14 @@
     android:id="@+id/activity_splsah_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context="com.byteshaft.shiurim.SplashScreen">
 
-    <TextView
-        android:textSize="26sp"
-        android:text="Your logo will appear here"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/splash_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>

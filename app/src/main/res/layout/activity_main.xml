@@ -18,6 +18,8 @@
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:background="@color/colorPrimary"
+        app:bb_showShadow="true"
         android:layout_alignParentBottom="true"
         app:bb_tabXmlResource="@xml/bottom_tabs" />
 
