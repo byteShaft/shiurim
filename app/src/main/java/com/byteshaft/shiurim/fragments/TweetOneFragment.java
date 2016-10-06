@@ -64,14 +64,14 @@ public class TweetOneFragment extends Fragment {
                 Paging paging = new Paging(1, 10);
 
                 try {
-                    final User user = twitter.showUser("World");
+                    final User user = twitter.showUser("VCKMishkanTorah");
                     URL url = new URL(user.getBiggerProfileImageURL());
                     twitterProfileIcon = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-                    statuses = twitter.getUserTimeline("World", paging);
-                    final tweetsArrayAdapter tweetsAdapter = new tweetsArrayAdapter(
+                    statuses = twitter.getUserTimeline("VCKMishkanTorah", paging);
+                    final TweetsOneArrayAdapter tweetsAdapter = new TweetsOneArrayAdapter(
                             getActivity().getApplicationContext(), R.layout.tweets_row, statuses);
 
-                    final ListView listview =(ListView) mBaseView.findViewById(R.id.lv_tweets);
+                    final ListView listview = (ListView) mBaseView.findViewById(R.id.lv_tweets);
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -90,35 +90,36 @@ public class TweetOneFragment extends Fragment {
                 Helpers.dismissProgressDialog();
             }
         }).start();
-}
-static class ViewHolder {
-    public TextView title;
-}
-
-private class tweetsArrayAdapter extends ArrayAdapter<List> {
-
-    public tweetsArrayAdapter(Context context, int resource, List objects) {
-        super(context, resource, objects);
-
     }
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
-        if (convertView == null) {
-            Context context = getActivity().getApplicationContext();
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(
-                    Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.tweets_row, parent, false);
-            holder = new ViewHolder();
-            holder.title = (TextView) convertView.findViewById(R.id.tv_tweet);
-            convertView.setTag(holder);
-        } else {
-            holder = (ViewHolder) convertView.getTag();
+    static class ViewHolder {
+        public TextView title;
+    }
+
+    private class TweetsOneArrayAdapter extends ArrayAdapter<List> {
+
+        public TweetsOneArrayAdapter(Context context, int resource, List objects) {
+            super(context, resource, objects);
+
         }
-        Status status = (Status) getItem(position);
-        holder.title.setText(status.getText());
-        return convertView;
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ViewHolder holder;
+            if (convertView == null) {
+                Context context = getActivity().getApplicationContext();
+                LayoutInflater inflater = (LayoutInflater) context.getSystemService(
+                        Context.LAYOUT_INFLATER_SERVICE);
+                convertView = inflater.inflate(R.layout.tweets_row, parent, false);
+                holder = new ViewHolder();
+                holder.title = (TextView) convertView.findViewById(R.id.tv_tweet);
+                convertView.setTag(holder);
+            } else {
+                holder = (ViewHolder) convertView.getTag();
+            }
+            Status status = (Status) getItem(position);
+            holder.title.setText(status.getText());
+            return convertView;
+        }
     }
-}
 }

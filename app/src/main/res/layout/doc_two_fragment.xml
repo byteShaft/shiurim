@@ -3,11 +3,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <WebView
+        android:id="@+id/contact_us_webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
     <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:id="@+id/tv_contact"
+        android:text="No Network Connection"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:visibility="gone"
         android:layout_centerHorizontal="true"
-        android:id="@+id/textView3" />
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </RelativeLayout>
