@@ -7,18 +7,18 @@
     <tab
         id="@+id/tab_document"
         icon="@mipmap/ic_doc"
-        title="document" />
+        title="shiurim" />
     <tab
         id="@+id/tab_tweets_one"
         icon="@mipmap/ic_twitter"
-        title="tweets" />
+        title="updates" />
 
     <tab
         id="@+id/tab_document_two"
-        icon="@mipmap/ic_doc"
-        title="document" />
+        icon="@mipmap/ic_contact"
+        title="contact Us" />
     <tab
         id="@+id/tab_tweets_two"
         icon="@mipmap/ic_twitter"
-        title="tweets" />
+        title="ads" />
 </tabs>
