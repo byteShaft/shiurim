@@ -23,10 +23,11 @@ public class CalendarFragment extends android.support.v4.app.Fragment {
     private WebView mWebView;
     private TextView tv_network;
     private static ProgressDialog progressDialog;
-    private String url = "https://calendar.google.com/calendar/embed?showTitle=0&showNav=0&showP" +
-            "rint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=1&bgcol" +
-            "or=%23ebd093&src=vckmishkantorah%40gmail.com&color=%234d1b1b&ctz=America%2FNew_York";
-
+    private String url = "https://calendar.google.com/calendar/embed?showTitle=0&showNav" +
+            "=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=" +
+            "1&bgcolor=%23FFFFFF&src=vckmishkantorah%40gmail.com&color=" +
+            "%23A32929&ctz=America%2FNew_York%22";
+    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mBaseView = inflater.inflate(R.layout.calendar_fragment, container, false);
