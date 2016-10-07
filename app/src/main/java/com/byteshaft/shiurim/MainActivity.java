@@ -14,6 +14,10 @@ import com.byteshaft.shiurim.fragments.TweetTwoFragment;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
+import com.twitter.sdk.android.Twitter;
+import com.twitter.sdk.android.core.TwitterAuthConfig;
+import io.fabric.sdk.android.Fabric;
+
 public class MainActivity extends AppCompatActivity {
 
     private BottomBar mBottomBar;
@@ -22,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        TwitterAuthConfig authConfig = new TwitterAuthConfig("16eabEYM1yyerYbmqnm9OSbJK",
+                "8oCNlQD221N9gPUGFpADF4WUD6eUBqSNegxMzOKOblG0kDjghn");
+        Fabric.with(this, new Twitter(authConfig));
         mBottomBar = (BottomBar) findViewById(R.id.bottomBar);
         mBottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
