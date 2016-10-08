@@ -1,10 +1,12 @@
 package com.byteshaft.shiurim;
 
+import android.content.Intent;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.byteshaft.shiurim.fragments.CalendarFragment;
 import com.byteshaft.shiurim.fragments.DocumentOneFragment;
@@ -29,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
         TwitterAuthConfig authConfig = new TwitterAuthConfig("16eabEYM1yyerYbmqnm9OSbJK",
                 "8oCNlQD221N9gPUGFpADF4WUD6eUBqSNegxMzOKOblG0kDjghn");
         Fabric.with(this, new Twitter(authConfig));
+
+        Bundle bundle = getIntent().getExtras();
+        String value = bundle.getString("key");
+
         mBottomBar = (BottomBar) findViewById(R.id.bottomBar);
         mBottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
@@ -51,6 +57,25 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        assert value != null;
+        switch (value) {
+            case "cal":
+                mBottomBar.setDefaultTabPosition(0);
+                break;
+            case "shi":
+                mBottomBar.setDefaultTabPosition(1);
+                break;
+            case "update":
+                mBottomBar.setDefaultTabPosition(2);
+                break;
+            case "contact":
+                mBottomBar.setDefaultTabPosition(3);
+                break;
+            case "ads":
+                mBottomBar.setDefaultTabPosition(4);
+                break;
+        }
     }
 
     public void loadFragment(Fragment fragment) {
