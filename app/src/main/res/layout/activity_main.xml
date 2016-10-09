@@ -43,7 +43,13 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <!-- This could be your fragment container, or something -->
+    <View
+        android:background="@color/golden"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/container"
+        android:layout_alignParentBottom="true"
+        android:layout_height="2dp" />
+
     <FrameLayout
         android:id="@+id/container"
         android:layout_below="@+id/my_toolbar"

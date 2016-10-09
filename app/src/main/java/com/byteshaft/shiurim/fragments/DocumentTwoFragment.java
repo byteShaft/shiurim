@@ -7,8 +7,12 @@ import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
@@ -26,6 +30,17 @@ public class DocumentTwoFragment extends Fragment {
     private String url = "https://docs.google.com/document/d/1t22RTWiVOYQxBY1_Xi4Zripyj" +
             "_XT0qjayv9VvQX-pTg/pub?embedded=true";
 
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message message) {
+            switch (message.what) {
+                case 1:{
+                    webViewGoBack();
+                }break;
+            }
+        }
+    };
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mBaseView = inflater.inflate(R.layout.doc_two_fragment, container, false);
@@ -36,6 +51,18 @@ public class DocumentTwoFragment extends Fragment {
         mWebView.getSettings().setBuiltInZoomControls(true);
         mWebView.getSettings().setDisplayZoomControls(false);
         mWebView.loadUrl(url);
+        mWebView.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_BACK
+                        && event.getAction() == MotionEvent.ACTION_UP
+                        && mWebView.canGoBack()) {
+                    handler.sendEmptyMessage(1);
+                    return true;
+                }
+                return false;
+            }
+        });
 
         if (isNetworkAvailable()) {
             mWebView.loadUrl(url);
@@ -44,6 +71,10 @@ public class DocumentTwoFragment extends Fragment {
             tv_network.setVisibility(View.VISIBLE);
         }
         return mBaseView;
+    }
+
+    private void webViewGoBack(){
+        mWebView.goBack();
     }
 
     public boolean isNetworkAvailable() {
@@ -73,7 +104,7 @@ public class DocumentTwoFragment extends Fragment {
 
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            showProgressDialog( getActivity() , "Loading...");
+//            showProgressDialog( getActivity() , "Loading...");
             view.loadUrl(url);
             return true;
         }
@@ -85,7 +116,7 @@ public class DocumentTwoFragment extends Fragment {
 
         @Override
         public void onPageFinished(WebView view, String url) {
-            dismissProgressDialog();
+//            dismissProgressDialog();
 
         }
     }
